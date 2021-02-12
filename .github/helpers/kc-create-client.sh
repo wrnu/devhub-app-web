@@ -6,9 +6,9 @@
 # - jq
 # environment variables
 # NAMESPACE <string>
-# KC_URL <string>
-# KC_CLIENT_ID <string>
-# KC_CLIENT_SECRET <string>
+# KEYCLOAK_URL <string>
+# KEYCLOAK_CLIENT_ID <string>
+# KEYCLOAK_CLIENT_SECRET <string>
 set -Eeuo pipefail
 # set -x
 

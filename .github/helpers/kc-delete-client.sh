@@ -2,7 +2,10 @@
 
 # Reference:
 # https://www.keycloak.org/docs-api/3.3/rest-api/#_identity_providers_resource
-
+# NAMESPACE <string>
+# KEYCLOAK_URL <string>
+# KEYCLOAK_CLIENT_ID <string>
+# KEYCLOAK_CLIENT_SECRET <string>
 set -Eeuo pipefail
 #set -x
 
@@ -11,12 +14,7 @@ if [ "$1" == "" ]; then
     exit 0
 fi
 
-# oc get secret for sso service account:
-KEYCLOAK_CLIENT_ID=$(oc -n devhub-dev get secret/sso-dev-service-account --template={{.data.KEYCLOAK_CLIENT_ID}} | base64 --decode)
-KEYCLOAK_CLIENT_SECRET=$(oc -n devhub-dev get secret/sso-dev-service-account --template={{.data.KEYCLOAK_CLIENT_SECRET}} | base64 --decode)
-
 # get sso variables:
-KEYCLOAK_URL=https://dev.oidc.gov.bc.ca
 REALM_NAME=devhub
 PR_NUMBER="$1"
 
